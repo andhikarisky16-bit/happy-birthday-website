@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Happy Birthday ✨ A Little Surprise For You</title>
+  <meta name="description" content="Sebuah kejutan ulang tahun interaktif: surat, bunga, kue, langit malam, dan kado terakhir." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body data-stage="opening">
+
+  <!-- ambient floating particles (global) -->
+  <div class="ambient" id="ambient" aria-hidden="true"></div>
+
+  <!-- soft cursor sparkle (desktop only, enabled by JS) -->
+  <div class="cursor-spark" id="cursorSpark" aria-hidden="true"></div>
+
+  <!-- progress dots -->
+  <nav class="progress" id="progress" aria-hidden="true">
+    <span class="dot is-on"></span><span class="dot"></span><span class="dot"></span>
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============ 1. OPENING ============ -->
+    <section class="stage stage-opening is-active" id="stage-opening" data-key="opening" data-index="0" aria-label="Opening">
+      <div class="bg-stars" id="openingStars" aria-hidden="true"></div>
+      <div class="blob blob-a" aria-hidden="true"></div>
+      <div class="blob blob-b" aria-hidden="true"></div>
+      <div class="blob blob-c" aria-hidden="true"></div>
+
+      <span class="blossom deco-flower f1" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b></span>
+      <span class="blossom deco-flower f2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b></span>
+      <span class="blossom deco-flower f3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b></span>
+
+      <div class="stage-content center">
+        <p class="ornament reveal" style="--d:.1s">✦&nbsp;&nbsp;✧&nbsp;&nbsp;✦</p>
+        <h1 class="title reveal" style="--d:.25s">Hey... today is a special day <span class="emoji-pulse">✨</span></h1>
+        <p class="subtitle reveal" style="--d:.5s">Someone deserves a little surprise today...</p>
+        <div class="btn-row reveal" style="--d:.75s">
+          <button class="btn btn-primary" id="startBtn" type="button">START <span class="btn-spark">✨</span></button>
+        </div>
+        <p class="micro-hint reveal" style="--d:1s">ikuti alurnya pelan-pelan, satu kejutan demi satu 🤍</p>
+      </div>
+    </section>
+
+    <!-- ============ 2. BIRTHDAY LETTER ============ -->
+    <section class="stage stage-letter" id="stage-letter" data-key="letter" data-index="1" aria-label="Birthday letter">
+      <div class="bokeh" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="petal-rain" id="petalRain" aria-hidden="true"></div>
+
+      <div class="stage-content center">
+        <p class="eyebrow reveal" style="--d:.1s">a little note, hand-delivered</p>
+
+        <div class="envelope-scene reveal-fade" style="--d:.3s">
+          <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Buka surat">
+            <div class="env-back"></div>
+            <div class="env-paper" aria-hidden="true">
+              <span class="line l1"></span><span class="line l2"></span><span class="line l3"></span>
+            </div>
+            <div class="env-front">
+              <span class="env-heart">♥</span>
+            </div>
+            <div class="env-flap"></div>
+            <div class="env-shine" aria-hidden="true"></div>
+          </div>
+
+          <article class="letter-card" id="letterCard" aria-hidden="true">
+            <span class="card-corner tl" aria-hidden="true">❦</span>
+            <span class="card-corner tr" aria-hidden="true">❦</span>
+            <span class="card-corner bl" aria-hidden="true">❦</span>
+            <span class="card-corner br" aria-hidden="true">❦</span>
+            <p class="letter-to">For you, on your special day</p>
+            <h2 class="letter-title" id="letterTitle"></h2>
+            <div class="letter-body">
+              <p class="letter-line" data-line="1">Hari ini bukan hari biasa — dunia jadi sedikit lebih hangat karena kehadiranmu.</p>
+              <p class="letter-line" data-line="2">Semoga tahun ini memelukmu dengan lembut: mimpi yang tumbuh, tawa yang panjang, dan hari-hari yang terasa seperti lagu.</p>
+              <p class="letter-line" data-line="3">Kau layak mendapat semua hal indah yang pernah kamu bayangkan, dan lebih banyak lagi. 🤍</p>
+            </div>
+            <p class="letter-sign" id="letterSign">— with love 💗</p>
+          </article>
+        </div>
+
+        <p class="hint" id="envHint">ketuk amplopnya ✉️</p>
+
+        <div class="btn-row">
+          <button class="btn btn-primary is-hidden" id="letterNext" type="button">Lanjut <span class="btn-spark">🌷</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. MAKE A WISH ============ -->
+    <section class="stage stage-wish" id="stage-wish" data-key="wish" data-index="2" aria-label="Make a wish">
+      <div class="wish-sun" aria-hidden="true"></div>
+      <div class="wish-motes" id="wishMotes" aria-hidden="true"></div>
+
+      <div class="stage-content center">
+        <p class="eyebrow reveal" style="--d:.1s">close your eyes for a second</p>
+        <h2 class="title title-sm reveal" style="--d:.25s">Make a little wish 🌷</h2>
+
+        <div class="garden reveal" id="garden" style="--d:.4s" aria-hidden="true">
+          <div class="ground"></div>
+
+          <div class="flower" style="--h:130px; --pd:.05s">
+            <span class="stem"></span><span class="leaf left"></span><span class="leaf right"></span>
+            <span class="head">
+              <span class="petal" style="--a:0deg"></span><span class="petal" style="--a:60deg"></span>
+              <span class="petal" style="--a:120deg"></span><span class="petal" style="--a:180deg"></span>
+              <span class="petal" style="--a:240deg"></span><span class="petal" style="--a:300deg"></span>
+              <span class="core"></span><span class="bud"></span>
+            </span>
+          </div>
+
+          <div class="flower" style="--h:185px; --pd:.28s">
+            <span class="stem"></span><span class="leaf left"></span><span class="leaf right"></span>
+            <span class="head">
+              <span class="petal" style="--a:0deg"></span><span class="petal" style="--a:60deg"></span>
+              <span class="petal" style="--a:120deg"></span><span class="petal" style="--a:180deg"></span>
+              <span class="petal" style="--a:240deg"></span><span class="petal" style="--a:300deg"></span>
+              <span class="core"></span><span class="bud"></span>
+            </span>
+          </div>
+
+          <div class="flower" style="--h:155px; --pd:.5s">
+            <span class="stem"></span><span class="leaf left"></span><span class="leaf right"></span>
+            <span class="head">
+              <span class="petal" style="--a:0deg"></span><span class="petal" style="--a:60deg"></span>
+              <span class="petal" style="--a:120deg"></span><span class="petal" style="--a:180deg"></span>
+              <span class="petal" style="--a:240deg"></span><span class="petal" style="--a:300deg"></span>
+              <span class="core"></span><span class="bud"></span>
+            </span>
+          </div>
+
+          <div class="flower" style="--h:200px; --pd:.72s">
+            <span class="stem"></span><span class="leaf left"></span><span class="leaf right"></span>
+            <span class="head">
+              <span class="petal" style="--a:0deg"></span><span class="petal" style="--a:60deg"></span>
+              <span class="petal" style="--a:120deg"></span><span class="petal" style="--a:180deg"></span>
+              <span class="petal" style="--a:240deg"></span><span class="petal" style="--a:300deg"></span>
+              <span class="core"></span><span class="bud"></span>
+            </span>
+          </div>
+
+          <div class="flower" style="--h:145px; --pd:.95s">
+            <span class="stem"></span><span class="leaf left"></span><span class="leaf right"></span>
+            <span class="head">
+              <span class="petal" style="--a:0deg"></span><span class="petal" style="--a:60deg"></span>
+              <span class="petal" style="--a:120deg"></span><span class="petal" style="--a:180deg"></span>
+              <span class="petal" style="--a:240deg"></span><span class="petal" style="--a:300deg"></span>
+              <span class="core"></span><span class="bud"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="wishBtn" type="button">MAKE A WISH <span class="btn-spark">✨</span></button>
+          <button class="btn btn-primary is-hidden" id="wishNext" type="button">Lanjut <span class="btn-spark">🎂</span></button>
+        </div>
+        <p class="hint" id="wishHint">tutup mata sebentar, buka hati 🤍</p>
+      </div>
+    </section>
+
+    <!-- ============ 4. BIRTHDAY CAKE ============ -->
+    <section class="stage stage-cake" id="stage-cake" data-key="cake" data-index="3" aria-label="Birthday cake">
+      <div class="warm-glow" aria-hidden="true"></div>
+      <div class="bokeh bokeh-warm" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+      <div class="stage-content center">
+        <p class="eyebrow reveal" style="--d:.1s">the sweetest part</p>
+        <h2 class="title title-sm reveal" style="--d:.25s">Make your wish... 🎂</h2>
+
+        <div class="cake-scene reveal" style="--d:.4s">
+          <div class="cake" id="cake">
+            <div class="candles" id="candles">
+              <div class="candle" style="--i:0" data-candle>
+                <span class="flame"></span><span class="flame-glow"></span><span class="smoke"></span><span class="wick"></span>
+              </div>
+              <div class="candle" style="--i:1" data-candle>
+                <span class="flame"></span><span class="flame-glow"></span><span class="smoke"></span><span class="wick"></span>
+              </div>
+              <div class="candle" style="--i:2" data-candle>
+                <span class="flame"></span><span class="flame-glow"></span><span class="smoke"></span><span class="wick"></span>
+              </div>
+            </div>
+
+            <div class="tier tier-top">
+              <span class="icing"></span>
+              <span class="sprinkles" data-sprinkles="top"></span>
+            </div>
+            <div class="tier tier-bottom">
+              <span class="icing"></span>
+              <span class="sprinkles" data-sprinkles="bottom"></span>
+            </div>
+            <div class="plate"></div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="blowBtn" type="button">Tiup lilinnya <span class="btn-spark">🕯️</span></button>
+          <button class="btn btn-primary is-hidden" id="cakeNext" type="button">Lanjut <span class="btn-spark">🌙</span></button>
+        </div>
+        <p class="hint" id="cakeHint">atau klik langsung lilinnya</p>
+      </div>
+    </section>
+
+    <!-- ============ 5. NIGHT SKY SURPRISE ============ -->
+    <section class="stage stage-sky" id="stage-sky" data-key="sky" data-index="4" aria-label="Night sky surprise">
+      <div class="sky-layer" aria-hidden="true">
+        <div class="moon"><span class="crater c1"></span><span class="crater c2"></span><span class="crater c3"></span></div>
+        <div class="stars" id="stars"></div>
+        <div class="shootings" id="shootings"></div>
+        <div class="sky-glow"></div>
+        <div class="horizon"></div>
+      </div>
+
+      <div class="stage-content center">
+        <p class="eyebrow eyebrow-light reveal" style="--d:.2s">and as the night gets quiet...</p>
+        <h2 class="hb-title" id="hbTitle" aria-label="Happy Birthday"></h2>
+        <p class="subtitle subtitle-light reveal" id="skySub" style="--d:2.6s">may every wish you make find its way back to you ✨</p>
+        <div class="btn-row reveal" style="--d:2.9s">
+          <button class="btn btn-ghost" id="skyNext" type="button">One last thing <span class="btn-spark">💫</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. FINAL SURPRISE — GIFT ============ -->
+    <section class="stage stage-gift" id="stage-gift" data-key="gift" data-index="5" aria-label="Final gift">
+      <div class="calm-rays" aria-hidden="true"></div>
+      <div class="calm-motes" id="calmMotes" aria-hidden="true"></div>
+
+      <div class="stage-content center">
+        <div class="gift-copy" id="giftCopy">
+          <p class="eyebrow reveal" style="--d:.2s">One last thing...</p>
+          <p class="title title-sm reveal" style="--d:.45s">This one is for you.</p>
+        </div>
+
+        <div class="gift-arena" id="giftArena">
+          <div class="gift-move" id="giftMove">
+            <div class="gift-float">
+              <button class="gift-box" id="giftBox" type="button" aria-label="Kejar kadonya">
+                <span class="gift-shadow"></span>
+                <span class="gift-body"></span>
+                <span class="gift-lid"></span>
+                <span class="ribbon-v"></span>
+                <span class="ribbon-h"></span>
+                <span class="bow b-left"></span>
+                <span class="bow b-right"></span>
+                <span class="bow-knot"></span>
+              </button>
+            </div>
+          </div>
+          <div class="tease" id="tease" aria-live="polite"></div>
+          <p class="arena-hint" id="arenaHint">kejar kadonya 🎁</p>
+        </div>
+      </div>
+
+      <div class="finale" id="finale" aria-hidden="true">
+        <div class="finale-card">
+          <p class="finale-top">💗 HAPPY BIRTHDAY 💗</p>
+          <div class="finale-rule" aria-hidden="true"><span></span>✦<span></span></div>
+          <p class="finale-msg">Semoga hari ini dipenuhi kebahagiaan, senyuman, dan banyak hal indah ✨</p>
+          <button class="btn btn-primary btn-sm" id="replayBtn" type="button">Putar lagi 🔁</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
